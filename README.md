@@ -2,11 +2,11 @@
 Programs in smz32v50
 
 # 1
-;-------------------------------------------------------
+
 ;Text input and display program with procedures.
 ;Use one procedure to input the text and one to display it
 ;Michael Parson
-;-------------------------------------------------------
+
 
 ; THE MAIN PROGRAM
         MOV     BL,70   ; [70] is the address where the text will be stored. 
@@ -16,7 +16,7 @@ Programs in smz32v50
 
         CALL    40      ; displays text on VDU Screen
 
-; --------------------------------------------------------------
+
 ;      PROCEDURE TO READ IN THE TEXT
         ORG     10      ; Code starts from address [10]
 
@@ -41,7 +41,7 @@ Stop:
         POP     AL      ; Restore AL from the stack
 
         RET             ; Return from the procedure.
-; --------------------------------------------------------------
+
 ;  PROCEDURE TO DISPLAY TEXT ON THE SIMULATED SCREEN
         ORG     40      ; Code starts from address [10]
 JOHN:
@@ -53,6 +53,6 @@ JOHN:
         JNZ     JOHN    ; If not jump to JOHN
         RET             ; Return from the procedure
 
-; ----------------------------------------------
+
 
   END           ; End of program
