@@ -3,9 +3,9 @@ Programs in smz32v50
 
 # 1
 
-;Text input and display program with procedures.
-;Use one procedure to input the text and one to display it
-;Michael Parson
+Text input and display program with procedures.
+Use one procedure to input the text and one to display it
+
 
 
      THE MAIN PROGRAM
