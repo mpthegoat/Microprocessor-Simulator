@@ -56,3 +56,51 @@ Use one procedure to input the text and one to display it
 
 
      END           ; End of program
+# 2
+This Program is a working Traffic Light.
+     
+	CLO		; Close unwanted windows.
+     Loop:
+     		; Turn on Red and Green lights.
+	MOV AL,84	; Copy 10000100 into the AL register.
+	MOV BL,8    	;
+	Out 01 		; Send AL to Port One (Traffic light simulator).
+	CALL	30	; Call the procedure at address [30]
+
+			; Turn on Red and Yellow lights.
+	MOV AL,88	; Copy 10001000 into the AL register.
+	Out 01 		; Send AL to Port One (Traffic light simulator).
+	MOV BL,3     	;
+	CALL	30	; Call the procedure at address [30]
+
+			; Turn on Green and Red lights.
+	MOV AL,30	; Copy 00110000 into the AL register.
+	Out 01		; Send AL to Port One (Traffic light simulator).
+	MOV BL,8    	;
+	CALL	30	; Call the procedure at address [30]
+
+			; Turn on Yellow and Red lights.
+	MOV AL,50	; Copy 01010000 into the AL register.
+	Out 01 		; Send AL to Port One (Traffic light simulator).
+	MOV BL,3     	;
+	CALL	30	; Call the procedure at address [30]
+
+	JMP Loop	; Jump program back to the start.
+
+
+	ORG	30	; Generate machine code from address [30]
+
+	PUSH	BL	; Save AL on the stack.
+	PUSHF		; Save the CPU flags on the stack.
+     
+     Rep:
+	
+	DEC	BL	; Subtract one from AL.
+	JNZ	REP	; Jump back to Rep if AL was not Zero.
+
+	POPF		; Restore the CPU flags from the stack.
+	POP	BL	; Restore AL from the stack.
+
+	RET		; Return from the procedure.
+
+	END		; Program ends
