@@ -63,31 +63,32 @@ This Program is a working Traffic Light.
      Loop:
      		; Turn on Red and Green lights.
 	MOV AL,84	; Copy 10000100 into the AL register.
-	MOV BL,8    	;
+	MOV BL,8    	; Count for timer
 	Out 01 		; Send AL to Port One (Traffic light simulator).
 	CALL	30	; Call the procedure at address [30]
 
 			; Turn on Red and Yellow lights.
 	MOV AL,88	; Copy 10001000 into the AL register.
 	Out 01 		; Send AL to Port One (Traffic light simulator).
-	MOV BL,3     	;
+	MOV BL,3     	; Count for timer
 	CALL	30	; Call the procedure at address [30]
 
 			; Turn on Green and Red lights.
 	MOV AL,30	; Copy 00110000 into the AL register.
 	Out 01		; Send AL to Port One (Traffic light simulator).
-	MOV BL,8    	;
+	MOV BL,8    	; Count for timer
 	CALL	30	; Call the procedure at address [30]
 
 			; Turn on Yellow and Red lights.
 	MOV AL,50	; Copy 01010000 into the AL register.
 	Out 01 		; Send AL to Port One (Traffic light simulator).
-	MOV BL,3     	;
+	MOV BL,3     	; Count for timer
 	CALL	30	; Call the procedure at address [30]
 
 	JMP Loop	; Jump program back to the start.
 
 
+       Time Delay Procedure   	
 	ORG	30	; Generate machine code from address [30]
 
 	PUSH	BL	; Save AL on the stack.
