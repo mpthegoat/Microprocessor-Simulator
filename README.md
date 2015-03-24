@@ -91,16 +91,16 @@ This Program is a working Traffic Light.
        Time Delay Procedure   	
 	ORG	30	; Generate machine code from address [30]
 
-	PUSH	BL	; Save AL on the stack.
+	PUSH	BL	; Save BL on the stack.
 	PUSHF		; Save the CPU flags on the stack.
      
      Rep:
 	
-	DEC	BL	; Subtract one from AL.
-	JNZ	REP	; Jump back to Rep if AL was not Zero.
+	DEC	BL	; Subtract one from BL.
+	JNZ	REP	; Jump back to Rep if BL was not Zero.
 
 	POPF		; Restore the CPU flags from the stack.
-	POP	BL	; Restore AL from the stack.
+	POP	BL	; Restore BL from the stack.
 
 	RET		; Return from the procedure.
 
