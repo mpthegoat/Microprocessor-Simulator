@@ -24,7 +24,7 @@ Programs in smz32v50
         PUSH    BL      ; Save BL onto the stack
         PUSHF           ; Save the CPU flags onto the stack
 
-Rep:
+     Rep:
         IN      00      ; Input from port 00 (keyboard)
         CMP     AL,0D   ; Was key press the Enter key?
         JZ      Stop    ; If yes then jump to Stop
@@ -32,7 +32,7 @@ Rep:
         INC     BL      ; BL points to the next location.
         JMP     Rep     ; Jump back to get the next character
 
-Stop:
+    Stop:
         MOV     AL,0    ; This is the NULL end marker
         MOV     [BL],AL ; Copy NULL character to this position.
 
@@ -44,7 +44,7 @@ Stop:
 
   PROCEDURE TO DISPLAY TEXT ON THE SIMULATED SCREEN
         ORG     40      ; Code starts from address [10]
-JOHN:
+     JOHN:
         MOV     CL,[BL] ; Copies RAM [70] to CL
         MOV     [DL],CL ; Copies CL to VDU Screen
         INC     DL      ; Move to next VDU Space
