@@ -8,7 +8,7 @@ Programs in smz32v50
 ;Michael Parson
 
 
-    THE MAIN PROGRAM
+     THE MAIN PROGRAM
         MOV     BL,70   ; [70] is the address where the text will be stored. 
         MOV     DL,C0   ; Makes DL point to VDU Screen
 
@@ -42,7 +42,7 @@ Programs in smz32v50
 
         RET             ; Return from the procedure.
 
-  PROCEDURE TO DISPLAY TEXT ON THE SIMULATED SCREEN
+     PROCEDURE TO DISPLAY TEXT ON THE SIMULATED SCREEN
         ORG     40      ; Code starts from address [10]
      JOHN:
         MOV     CL,[BL] ; Copies RAM [70] to CL
@@ -55,4 +55,4 @@ Programs in smz32v50
 
 
 
-  END           ; End of program
+     END           ; End of program
